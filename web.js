@@ -1,7 +1,7 @@
 var express = require('express');
-
+var fs  = require('fs');
 var app = express.createServer(express.logger());
-var index = fs.readFileSync(index.html);  // This will return a buff index with the contents of index.html within it.
+var index = new Buffer(fs.readFileSync('index.html'));  // This will return a buff index with the contents of index.html within it.
 var string = index.toString;
 app.get('/', function(request, response) {
   response.send(string);
